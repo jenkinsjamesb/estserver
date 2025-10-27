@@ -1,0 +1,5 @@
+__pycache__
+secrets
+
+docs/utils/*
+!docs/utils/*.sh
