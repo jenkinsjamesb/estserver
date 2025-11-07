@@ -3,3 +3,5 @@ secrets
 
 docs/utils/*
 !docs/utils/*.sh
+!docs/utils/*.cnf
+!docs/utils/openssl-util
