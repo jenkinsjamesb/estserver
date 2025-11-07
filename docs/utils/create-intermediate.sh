@@ -24,22 +24,24 @@ openssl req -config openssl.cnf -new -sha256 \
     -subj $3 \
     -out csr/intermediate.csr.pem
 
+cd ..
+cd $2
 
-openssl ca -config $2/openssl.cnf -extensions v3_intermediate_ca \
-    -days 3650 -notext -md sha256 -in csr/intermediate.csr.pem \
-    -out certs/intermediate.cert.pem
+openssl ca -config openssl.cnf -extensions v3_intermediate_ca \
+    -days 3650 -notext -md sha256 -in ../$1/intermediate-ca/csr/intermediate.csr.pem \
+    -out ../$1/intermediate-ca/certs/intermediate.cert.pem
 
-chmod 444 certs/intermediate.cert.pem
+chmod 444 $1/intermediate-ca/certs/intermediate.cert.pem
 
 
 # Verify
-openssl x509 -noout -text -in certs/intermediate.cert.pem
+openssl x509 -noout -text -in ../$1/intermediate-ca/certs/intermediate.cert.pem
 
-openssl verify -CAfile $2/certs/ca.cert.pem certs/intermediate.cert.pem
+openssl verify -CAfile certs/ca.cert.pem ../$1/intermediate-ca/certs/intermediate.cert.pem
 
-cat certs/intermediate.cert.pem $2/certs/ca.cert.pem > \
-    certs/ca-chain.cert.pem
+cat ../$1/intermediate-ca/certs/intermediate.cert.pem certs/ca.cert.pem > \
+    ../$1/intermediate-ca/certs/ca-chain.cert.pem
 
-chmod 444 certs/ca-chain.cert.pem
+chmod 444 ../$1/intermediate-ca/certs/ca-chain.cert.pem
 
 # Our certificate chain file must include the root certificate because no client application knows about it yet. A better option, particularly if you’re administrating an intranet, is to install your root certificate on every client that needs to connect. In that case, the chain file need only contain your intermediate certificate.

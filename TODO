@@ -1,0 +1,6 @@
+☐ Add fields to openssl csr commands @started(25-10-26 21:41)
+☐ Make sure cert bootstrapping is good
+☐ add opt to generate nginx server creds
+☐ pull curl script off laptop for testing
+☐ fill in flask server with script hooks
+☐ add option

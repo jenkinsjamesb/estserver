@@ -1,0 +1,20 @@
+{
+        "enable_ui": false,
+        "servers": [
+                {
+                        "url_prefix": "/.well-known/est",
+                        "ca": "/path/to/ca/dir",
+                        "key": "/path/to/server/key",
+                        "cert": "/path/to/server/cert",
+                        "endpoints_enabled": {
+                                "cacerts": true,
+                                "simpleenroll": true,
+                                "simplereenroll": true,
+                                "fullcmc": true,
+                                "serverkeygen": true,
+                                "csrattrs": true
+                        },
+                        "comment": "Default EST server for RFC 7030 compliance, with all endpoints enabled."
+                }
+        ]
+}
