@@ -1,3 +1,3 @@
 [submodule "docs/utils/openssl-util"]
 	path = docs/openssl-util
-	url = https://github.com/jtyers/openssl-util.git
+	url = https://github.com/jenkinsjamesb/openssl-util.git
