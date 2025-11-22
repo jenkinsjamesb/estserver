@@ -1,11 +1,11 @@
 {
         "enable_ui": false,
+        "key": "/path/to/server/key",
+        "cert": "/path/to/server/cert",
         "servers": [
                 {
                         "url_prefix": "/.well-known/est",
                         "ca": "/path/to/ca/dir",
-                        "key": "/path/to/server/key",
-                        "cert": "/path/to/server/cert",
                         "endpoints_enabled": {
                                 "cacerts": true,
                                 "simpleenroll": true,
