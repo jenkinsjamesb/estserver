@@ -34,7 +34,7 @@ def route_enabled(location, server_config):
 
 @est_blueprint.route('/cacerts') # MUST
 def cacerts():
-        if route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]) == False:
+        if not route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]):
                 abort(405)
 
         # call openssl_util or get files
@@ -53,30 +53,30 @@ def cacerts():
 
 @est_blueprint.route('/simpleenroll') # MUST
 def simpleenroll():
-        if route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]) == False:
+        if not route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]):
                 abort(405)
         pass
 
 @est_blueprint.route('/simplereenroll') # MUST
 def simplereenroll():
-        if route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]) == False:
+        if not route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]):
                 abort(405)
         pass
 
 @est_blueprint.route('/fullcmc') # OPT
 def fullcmc():
-        if route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]) == False:
+        if not route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]):
                 abort(405)
         pass
 
 @est_blueprint.route('/serverkeygen') # OPT
 def serverkeygen():
-        if route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]) == False:
+        if not route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]):
                 abort(405)
         pass
 
 @est_blueprint.route('/csrattrs') # OPT
 def csrattrs():
-        if route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]) == False:
+        if not route_enabled(request.url_rule.rule, current_app.config["estconfig"]["servers"]):
                 abort(405)
         pass

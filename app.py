@@ -22,7 +22,7 @@ with open("config.json", "r") as config_file:
 
 # Create est server at each server location directive
 for server in app.config["estconfig"]["servers"]:
-        print(f"Starting EST server at {server["url_prefix"]}")
+        print(f"Starting EST server at {server['url_prefix']}")
         app.register_blueprint(est_blueprint, url_prefix=server["url_prefix"])
 
 # Route / : Web interface, should show signed certs, log, offer revocation
